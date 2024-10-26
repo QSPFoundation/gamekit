@@ -1,0 +1,28 @@
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version'
+        required: true
+        default: '0.0.0'
+      annotation:
+        description: 'Comments'
+
+name: Release QSP Game Kit
+run-name: Release QSP Game Kit ${{ inputs.version }}
+
+jobs:
+  build:
+    name: Build and upload ${{ inputs.version }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Build release
+        run: ./build_gamekit.sh "${{ inputs.version }}"
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          make_latest: true
+          body: ${{ inputs.annotation }}
+          files: dist/*
