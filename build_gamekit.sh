@@ -28,11 +28,13 @@ cp -r $REL_GAMES_DIR/. $REL_BUILD_BIN_DIR
 echo "Copying other files"
 cp -r ./misc/. $REL_BUILD_BIN_DIR
 
+echo "Preparing InnoSetup docker image"
+docker build -t 'innosetup' -f InnoSetup_Dockerfile .
+
 echo "Building the game kit $GAMEKIT_VER"
 docker run --rm -i \
   -v "$PWD:/work" \
-  -u root \
-  amake/innosetup \
+  innosetup \
   /Odist \
   /DSOURCE_DIR=$REL_BUILD_BIN_DIR \
   /DAPP_VERSION=$GAMEKIT_VER \

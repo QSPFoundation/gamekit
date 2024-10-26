@@ -1,0 +1,5 @@
+FROM docker.io/amake/innosetup
+USER root
+RUN chown -R root /home
+WORKDIR /work
+ENTRYPOINT ["iscc"]
