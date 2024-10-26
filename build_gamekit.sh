@@ -2,7 +2,7 @@
 
 set -e
 
-export GAMEKIT_VER="${1:-0.0.0}"
+export GAMEKIT_VER="${1:-latest}"
 
 # Validation
 [ ! -d "./games" ] && echo "Run this script from the project root directory" && exit
