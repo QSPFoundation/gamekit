@@ -21,5 +21,6 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           make_latest: true
+          tag_name: ${{ steps.version.outputs.version }}
           body: ${{ inputs.annotation }}
           files: dist/*
