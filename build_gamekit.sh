@@ -14,7 +14,7 @@ REL_BUILD_DIR=./build
 REL_BUILD_BIN_DIR=$REL_BUILD_DIR/bin
 
 echo "Retrieving the latest QSP Classic version"
-LATEST=$(curl -s https://api.github.com/repos/QSPFoundation/qspgui/releases/latest | grep -Eo 'https?://.*qspgui-.*-win32.zip')
+LATEST=$(curl -s https://api.github.com/repos/QSPFoundation/qspgui/releases/latest | grep -Eo 'https?://.*/qspgui-.*-win32\.zip')
 
 echo "Downloading $LATEST"
 wget -P $REL_BUILD_DIR -q "$LATEST"
