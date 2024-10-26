@@ -28,15 +28,11 @@ Source: "*.*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
 
 [Registry]
 ; setup associations
-Root: HKA; Subkey: "Software\Classes\Applications\{#APP_EXE_FILE}"; Flags: uninsdeletekey
-Root: HKA; Subkey: "Software\Classes\Applications\{#APP_EXE_FILE}"; ValueType: string; ValueName: "FriendlyAppName"; ValueData: "{#APP_NAME} {#APP_VERSION}"
-Root: HKA; Subkey: "Software\Classes\Applications\{#APP_EXE_FILE}\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\{#APP_EXE_FILE},0"
-Root: HKA; Subkey: "Software\Classes\Applications\{#APP_EXE_FILE}\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\{#APP_EXE_FILE}"" ""%1"""
-Root: HKA; Subkey: "Software\RegisteredApplications"; ValueType: string; ValueName: "{#APP_ID}"; ValueData: "Software\{#APP_ID}\Capabilities"; Flags: uninsdeletevalue
 Root: HKA; Subkey: "Software\{#APP_ID}"; Flags: uninsdeletekey
 Root: HKA; Subkey: "Software\{#APP_ID}\Capabilities"; ValueType: string; ValueName: "ApplicationName"; ValueData: "{#APP_NAME}"
 Root: HKA; Subkey: "Software\{#APP_ID}\Capabilities"; ValueType: string; ValueName: "ApplicationIcon"; ValueData: "{app}\{#APP_EXE_FILE},0"
 Root: HKA; Subkey: "Software\{#APP_ID}\Capabilities"; ValueType: string; ValueName: "ApplicationDescription"; ValueData: "{#APP_NAME} {#APP_VERSION}"
+Root: HKA; Subkey: "Software\RegisteredApplications"; ValueType: string; ValueName: "{#APP_ID}"; ValueData: "Software\{#APP_ID}\Capabilities"; Flags: uninsdeletevalue
 ; associate file types
 Root: HKA; Subkey: "Software\Classes\.qsp\OpenWithProgids"; ValueType: string; ValueName: "{#APP_ID}.qsp"; ValueData: ""; Flags: uninsdeletevalue
 Root: HKA; Subkey: "Software\Classes\{#APP_ID}.qsp"; ValueType: string; ValueName: ""; ValueData: "{#APP_ID}"; Flags: uninsdeletekey
