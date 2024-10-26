@@ -29,7 +29,10 @@ echo "Copying other files"
 cp -r ./misc/. $REL_BUILD_BIN_DIR
 
 echo "Building the game kit $GAMEKIT_VER"
-docker run --rm -i -v "$PWD:/work" amake/innosetup \
+docker run --rm -i \
+  -v "$PWD:/work" \
+  -u root \
+  amake/innosetup \
   /Odist \
   /DSOURCE_DIR=$REL_BUILD_BIN_DIR \
   /DAPP_VERSION=$GAMEKIT_VER \
