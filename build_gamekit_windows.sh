@@ -4,13 +4,15 @@ set -e
 
 export GAMEKIT_VER="${1:-latest}"
 
+mkdir -p dist
+
 # Validation
 [ ! -d "./contents" ] && echo "Run this script from the project root directory" && exit
 
-mkdir -p build
+mkdir -p build/win32
 
 REL_CONTENTS_DIR=./contents
-REL_BUILD_DIR=./build
+REL_BUILD_DIR=./build/win32
 REL_BUILD_BIN_DIR=$REL_BUILD_DIR/bin
 
 echo "Retrieving the latest QSP Classic version"
