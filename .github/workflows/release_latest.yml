@@ -17,8 +17,8 @@ jobs:
         run: echo "version=$(date +'%Y_%m_%d')" >> $GITHUB_OUTPUT
       - name: Build Win32 release
         run: ./build_gamekit_windows.sh "${{ steps.version.outputs.version }}"
-      - name: Prepare a package
-        run: ./build_games_package.sh
+      - name: Prepare a package for qSpider
+        run: ./build_games_package.sh qspider
       - name: Publish release
         uses: softprops/action-gh-release@v2
         with:
